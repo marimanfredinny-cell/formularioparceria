@@ -1358,7 +1358,37 @@
               </div>
             </div>
 
-            <div class="step-hint">Nesse modelo você paga zero fixo. Paga comissão somente sobre os resultados gerados.</div>
+            <div class="step-hint">Nesse modelo você <strong>não paga nada fixo</strong>. Paga comissão somente sobre os clientes fechados vindos do digital.</div>
+
+            <div class="step-question" style="margin-top:18px;font-size:clamp(15px,3vw,17px);">O que eu entrego:</div>
+            <div class="step-hint" style="margin-top:6px;line-height:1.7;">
+              ✅ Gestão de tráfego pago<br>
+              ✅ Site profissional<br>
+              ✅ Planejamento estratégico completo do digital
+            </div>
+
+            <div class="step-question" style="margin-top:16px;font-size:clamp(15px,3vw,17px);">O que você entrega:</div>
+            <div class="step-hint" style="margin-top:6px;line-height:1.7;">
+              📸 Criativos (fotos, vídeos para os anúncios)<br>
+              💰 Investimento no gerenciador de anúncios (Meta Ads / Google Ads)
+            </div>
+
+            <div class="step-question" style="margin-top:20px;">Você está aberto(a) a investir mensalmente no gerenciador de anúncios?</div>
+            <div class="step-hint">Sem verba para anúncios não é possível gerar resultado via tráfego pago. Esse investimento é obrigatório.</div>
+            <div class="options" id="opts-investimento">
+              <div class="opt" onclick="pick(this,'investimento','sim')">
+                <div class="opt-indicator"></div><span>Sim, já invisto ou estou pronto para investir</span>
+              </div>
+              <div class="opt" onclick="pick(this,'investimento','talvez')">
+                <div class="opt-indicator"></div><span>Ainda não invisto, mas quero entender os valores</span>
+              </div>
+              <div class="opt" onclick="pick(this,'investimento','nao')">
+                <div class="opt-indicator"></div><span>Não, prefiro trabalhar só com orgânico</span>
+              </div>
+            </div>
+            <span class="err" id="err-investimento">Selecione uma opção.</span>
+
+            <div class="step-question" style="margin-top:20px;">Você está aberto(a) ao modelo de pagamento por comissão?</div>
             <div class="options" id="opts-modelo">
               <div class="opt" onclick="pick(this,'modelo','sim')">
                 <div class="opt-indicator"></div><span>Sim, estou totalmente aberto(a)</span>
@@ -1371,6 +1401,7 @@
               </div>
             </div>
             <span class="err" id="err-modelo">Selecione uma opção.</span>
+
             <div class="nav">
               <button class="btn-back" onclick="goTo(7)">←</button>
               <button class="btn-next" onclick="goStep8()">Continuar</button>
@@ -1580,7 +1611,9 @@
   }
 
   function goStep8() {
+    if (!A.investimento) { showErr('err-investimento'); return; } hideErr('err-investimento');
     if (!A.modelo) { showErr('err-modelo'); return; } hideErr('err-modelo');
+    if (A.investimento === 'nao') { showScreen('scr-out'); return; }
     if (A.modelo === 'nao') { showScreen('scr-out'); return; }
     goTo(9);
   }
