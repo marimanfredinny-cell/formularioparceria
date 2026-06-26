@@ -22,9 +22,11 @@
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: linear-gradient(135deg, #E8EEF0 0%, #F2F2F7 40%, #E4ECF0 100%);
+      background:
+        linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+        url('DSC08592 (1).jpg') center center / cover fixed no-repeat;
       min-height: 100vh;
-      color: #1C1C1E;
+      color: #fff;
       display: flex;
       flex-direction: column;
     }
@@ -32,36 +34,36 @@
     /* ── LIQUID GLASS MIXIN (aplicado via classes) ── */
     /* Liquid glass forte — janelas principais */
     .glass-strong {
-      background: rgba(255,255,255,0.52);
-      backdrop-filter: blur(60px) saturate(200%) brightness(1.06);
-      -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(1.06);
-      border: 0.5px solid rgba(255,255,255,0.85);
+      background: rgba(12,12,12,0.55);
+      backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      border: 0.5px solid rgba(255,255,255,0.12);
       box-shadow:
-        0 20px 60px rgba(74,102,112,0.14),
-        0 2px 8px rgba(74,102,112,0.08),
-        inset 0 1.5px 0 rgba(255,255,255,0.95),
-        inset 0 -0.5px 0 rgba(0,0,0,0.05);
+        0 24px 64px rgba(0,0,0,0.5),
+        0 2px 8px rgba(0,0,0,0.3),
+        inset 0 1.5px 0 rgba(255,255,255,0.1),
+        inset 0 -0.5px 0 rgba(0,0,0,0.2);
     }
 
     /* Liquid glass médio — cards, opções */
     .glass-mid {
-      background: rgba(255,255,255,0.42);
-      backdrop-filter: blur(40px) saturate(180%) brightness(1.04);
-      -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.04);
-      border: 0.5px solid rgba(255,255,255,0.78);
+      background: rgba(18,18,18,0.5);
+      backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      -webkit-backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      border: 0.5px solid rgba(255,255,255,0.1);
       box-shadow:
-        0 4px 16px rgba(74,102,112,0.09),
-        inset 0 1px 0 rgba(255,255,255,0.9),
-        inset 0 -0.5px 0 rgba(0,0,0,0.03);
+        0 4px 16px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 -0.5px 0 rgba(0,0,0,0.15);
     }
 
     /* Liquid glass leve — inputs */
     .glass-light {
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      border: 0.5px solid rgba(255,255,255,0.7);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 1px 4px rgba(0,0,0,0.06);
+      background: rgba(18,18,18,0.45);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 1px 4px rgba(0,0,0,0.2);
     }
 
     /* ── MENU BAR ── */
@@ -69,10 +71,10 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       height: 28px;
-      background: rgba(246,246,246,0.92);
+      background: rgba(10,10,10,0.75);
       backdrop-filter: blur(40px) saturate(180%);
       -webkit-backdrop-filter: blur(40px) saturate(180%);
-      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       padding: 0 16px;
@@ -85,7 +87,7 @@
     .menubar-brand {
       font-size: 13px;
       font-weight: 600;
-      color: #1C1C1E;
+      color: #fff;
       letter-spacing: -0.1px;
     }
 
@@ -98,14 +100,14 @@
     .menubar-items span {
       font-size: 13px;
       font-weight: 400;
-      color: rgba(60,60,67,0.65);
+      color: rgba(255,255,255,0.5);
       cursor: default;
     }
 
-    .menubar-items span.active { color: #1C1C1E; font-weight: 600; }
+    .menubar-items span.active { color: #fff; font-weight: 600; }
 
     .menubar-items span.menu-restart {
-      color: #4A6670;
+      color: rgba(255,255,255,0.75);
       font-weight: 500;
       cursor: pointer;
       transition: opacity 0.15s;
@@ -121,7 +123,7 @@
 
     .menubar-right span {
       font-size: 12px;
-      color: rgba(60,60,67,0.65);
+      color: rgba(255,255,255,0.5);
     }
 
     /* ── PAGE LAYOUT ── */
@@ -145,10 +147,10 @@
     /* ── TITLEBAR ── */
     .titlebar {
       height: 44px;
-      background: rgba(236,236,236,0.9);
+      background: rgba(8,8,8,0.65);
       backdrop-filter: blur(40px) saturate(180%);
       -webkit-backdrop-filter: blur(40px) saturate(180%);
-      border-bottom: 0.5px solid rgba(0,0,0,0.08);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       padding: 0 16px;
@@ -172,7 +174,7 @@
       text-align: center;
       font-size: 13px;
       font-weight: 600;
-      color: rgba(60,60,67,0.85);
+      color: rgba(255,255,255,0.7);
       letter-spacing: -0.1px;
     }
 
@@ -185,7 +187,7 @@
     .win-header {
       margin-bottom: 28px;
       padding-bottom: 20px;
-      border-bottom: 0.5px solid rgba(0,0,0,0.08);
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
     }
 
     .section-label {
@@ -193,7 +195,7 @@
       font-weight: 600;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: #4A6670;
+      color: rgba(255,255,255,0.45);
       margin-bottom: 10px;
     }
 
@@ -202,7 +204,7 @@
       font-weight: 300;
       letter-spacing: -0.04em;
       line-height: 1.1;
-      color: #1C1C1E;
+      color: #fff;
       margin-bottom: 10px;
     }
 
@@ -210,7 +212,7 @@
       font-size: 14px;
       font-weight: 400;
       line-height: 1.65;
-      color: rgba(60,60,67,0.6);
+      color: rgba(255,255,255,0.55);
     }
 
     /* ── PROGRESS ── */
@@ -226,18 +228,18 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #8E8E93;
+      color: rgba(255,255,255,0.4);
     }
 
     .progress-pct {
       font-size: 11px;
       font-weight: 600;
-      color: #4A6670;
+      color: rgba(255,255,255,0.7);
     }
 
     .progress-track {
       height: 2px;
-      background: rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.12);
       border-radius: 100px;
       overflow: hidden;
       margin-bottom: 28px;
@@ -245,7 +247,7 @@
 
     .progress-fill {
       height: 100%;
-      background: #4A6670;
+      background: #fff;
       border-radius: 100px;
       transition: width 0.4s ease;
     }
@@ -264,7 +266,7 @@
       font-weight: 600;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: #4A6670;
+      color: rgba(255,255,255,0.4);
       margin-bottom: 8px;
     }
 
@@ -273,14 +275,14 @@
       font-weight: 300;
       letter-spacing: -0.02em;
       line-height: 1.3;
-      color: #1C1C1E;
+      color: #fff;
       margin-bottom: 5px;
     }
 
     .step-hint {
       font-size: 13px;
       font-weight: 400;
-      color: rgba(60,60,67,0.55);
+      color: rgba(255,255,255,0.5);
       line-height: 1.5;
       margin-bottom: 20px;
     }
@@ -298,42 +300,32 @@
       transition: all 0.2s ease;
       font-size: 14px;
       font-weight: 400;
-      color: rgba(60,60,67,0.85);
-      /* liquid glass leve */
-      background: rgba(255,255,255,0.42);
-      backdrop-filter: blur(40px) saturate(180%) brightness(1.04);
-      -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.04);
-      border: 0.5px solid rgba(255,255,255,0.78);
-      box-shadow:
-        0 2px 8px rgba(74,102,112,0.07),
-        inset 0 1px 0 rgba(255,255,255,0.9),
-        inset 0 -0.5px 0 rgba(0,0,0,0.03);
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(30px) saturate(140%);
+      -webkit-backdrop-filter: blur(30px) saturate(140%);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.07);
     }
 
     .opt:hover {
-      background: rgba(255,255,255,0.65);
-      border-color: rgba(74,102,112,0.35);
-      box-shadow:
-        0 6px 20px rgba(74,102,112,0.13),
-        inset 0 1px 0 rgba(255,255,255,0.95),
-        inset 0 -0.5px 0 rgba(0,0,0,0.04);
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
       transform: translateY(-1px);
     }
 
     .opt.selected {
-      background: rgba(74,102,112,0.14);
-      border-color: #4A6670;
-      color: #1C1C1E;
-      box-shadow:
-        0 4px 16px rgba(74,102,112,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.7),
-        inset 0 -0.5px 0 rgba(74,102,112,0.1);
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
     }
 
     .opt-indicator {
       width: 16px; height: 16px;
       border-radius: 50%;
-      border: 1.5px solid rgba(60,60,67,0.25);
+      border: 1.5px solid rgba(255,255,255,0.3);
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -342,21 +334,21 @@
     }
 
     .opt.selected .opt-indicator {
-      border-color: #4A6670;
-      background: #4A6670;
+      border-color: #fff;
+      background: #fff;
     }
 
     .opt.selected .opt-indicator::after {
       content: '';
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: #fff;
+      background: #111;
     }
 
     .opt-check {
       width: 16px; height: 16px;
       border-radius: 4px;
-      border: 1.5px solid rgba(60,60,67,0.25);
+      border: 1.5px solid rgba(255,255,255,0.3);
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -364,8 +356,8 @@
       transition: all 0.18s;
     }
 
-    .opt.selected .opt-check { border-color: #4A6670; background: #4A6670; }
-    .opt.selected .opt-check::after { content: '✓'; font-size: 10px; font-weight: 700; color: #fff; }
+    .opt.selected .opt-check { border-color: #fff; background: #fff; }
+    .opt.selected .opt-check::after { content: '✓'; font-size: 10px; font-weight: 700; color: #111; }
 
     /* ── INPUTS — Liquid Glass ── */
     .fields { display: flex; flex-direction: column; gap: 14px; }
@@ -376,19 +368,19 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #8E8E93;
+      color: rgba(255,255,255,0.45);
     }
 
     .field input,
     .field textarea,
     .field select {
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      border: 0.5px solid rgba(255,255,255,0.7);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 1px 4px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 0.5px solid rgba(255,255,255,0.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 4px rgba(0,0,0,0.2);
       border-radius: 10px;
-      color: #1C1C1E;
+      color: #fff;
       font-size: 14px;
       font-weight: 400;
       font-family: 'Inter', -apple-system, sans-serif;
@@ -402,16 +394,16 @@
     .field input:focus,
     .field textarea:focus,
     .field select:focus {
-      border-color: #4A6670;
-      background: rgba(255,255,255,0.75);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 0 0 3px rgba(74,102,112,0.12), 0 1px 4px rgba(0,0,0,0.06);
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.11);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 3px rgba(255,255,255,0.08);
     }
 
     .field input::placeholder,
-    .field textarea::placeholder { color: rgba(60,60,67,0.3); }
+    .field textarea::placeholder { color: rgba(255,255,255,0.25); }
 
     .field select { cursor: pointer; }
-    .field select option { background: #F2F2F7; color: #1C1C1E; }
+    .field select option { background: #1a1a1a; color: #fff; }
 
     .field textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
 
@@ -428,7 +420,7 @@
     /* ── HAIRLINE ── */
     .hairline {
       height: 0.5px;
-      background: rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.08);
       margin: 20px 0;
     }
 
@@ -438,17 +430,17 @@
       gap: 10px;
       margin-top: 24px;
       padding-top: 20px;
-      border-top: 0.5px solid rgba(0,0,0,0.06);
+      border-top: 0.5px solid rgba(255,255,255,0.08);
     }
 
     .btn-back {
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.08);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 0.5px solid rgba(0,0,0,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+      border: 0.5px solid rgba(255,255,255,0.15);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
       border-radius: 8px;
-      color: rgba(60,60,67,0.6);
+      color: rgba(255,255,255,0.6);
       font-size: 14px;
       font-family: 'Inter', sans-serif;
       padding: 0 18px;
@@ -458,38 +450,35 @@
       flex-shrink: 0;
     }
 
-    .btn-back:hover { background: rgba(255,255,255,0.72); color: #1C1C1E; }
+    .btn-back:hover { background: rgba(255,255,255,0.14); color: #fff; }
 
     .btn-next {
       flex: 1;
       height: 42px;
-      background: #4A6670;
+      background: #fff;
       border: none;
       border-radius: 8px;
-      color: #fff;
+      color: #0a0a0a;
       font-size: 14px;
       font-weight: 600;
       font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: all 0.18s;
       letter-spacing: -0.1px;
-      box-shadow: 0 2px 8px rgba(74,102,112,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
 
-    .btn-next:hover { background: #5a7a88; box-shadow: 0 4px 14px rgba(74,102,112,0.35), inset 0 1px 0 rgba(255,255,255,0.15); }
-    .btn-next:active { background: #3d5660; }
+    .btn-next:hover { background: rgba(255,255,255,0.9); box-shadow: 0 4px 18px rgba(0,0,0,0.35); }
+    .btn-next:active { background: rgba(255,255,255,0.8); }
 
     /* ── SPOTLIGHT — Liquid Glass ── */
     .spotlight {
-      background: rgba(248,248,248,0.92);
-      backdrop-filter: blur(60px) saturate(200%) brightness(1.06);
-      -webkit-backdrop-filter: blur(60px) saturate(200%) brightness(1.06);
-      border: 0.5px solid rgba(255,255,255,0.85);
+      background: rgba(15,15,15,0.6);
+      backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+      border: 0.5px solid rgba(255,255,255,0.12);
       border-radius: 16px;
-      box-shadow:
-        0 20px 60px rgba(74,102,112,0.18),
-        inset 0 1.5px 0 rgba(255,255,255,0.95),
-        inset 0 -0.5px 0 rgba(0,0,0,0.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1.5px 0 rgba(255,255,255,0.08);
       overflow: hidden;
       margin-bottom: 20px;
     }
@@ -499,7 +488,7 @@
       align-items: center;
       gap: 10px;
       padding: 14px 20px;
-      border-bottom: 0.5px solid rgba(0,0,0,0.06);
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
     }
 
     .spotlight-icon { font-size: 16px; opacity: 0.45; }
@@ -508,21 +497,18 @@
       font-size: 16px;
       font-weight: 300;
       letter-spacing: -0.2px;
-      color: rgba(60,60,67,0.85);
+      color: rgba(255,255,255,0.82);
     }
 
     /* ── NOTIFICATION BANNER — Liquid Glass ── */
     .notif {
-      background: rgba(255,255,255,0.65);
-      backdrop-filter: blur(40px) saturate(180%) brightness(1.05);
-      -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.05);
-      border: 0.5px solid rgba(255,255,255,0.85);
+      background: rgba(18,18,18,0.65);
+      backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      -webkit-backdrop-filter: blur(40px) saturate(160%) brightness(1.08);
+      border: 0.5px solid rgba(255,255,255,0.12);
       border-radius: 14px;
       padding: 13px 15px;
-      box-shadow:
-        0 8px 32px rgba(74,102,112,0.14),
-        inset 0 1px 0 rgba(255,255,255,0.95),
-        inset 0 -0.5px 0 rgba(0,0,0,0.04);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07);
       display: flex;
       align-items: flex-start;
       gap: 10px;
@@ -548,27 +534,27 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #8E8E93;
+      color: rgba(255,255,255,0.4);
       margin-bottom: 2px;
     }
 
     .notif-title {
       font-size: 13px;
       font-weight: 600;
-      color: #1C1C1E;
+      color: #fff;
       margin-bottom: 2px;
     }
 
     .notif-body {
       font-size: 12px;
       font-weight: 400;
-      color: rgba(60,60,67,0.6);
+      color: rgba(255,255,255,0.55);
       line-height: 1.4;
     }
 
     .notif-time {
       font-size: 10px;
-      color: #AEAEB2;
+      color: rgba(255,255,255,0.3);
       white-space: nowrap;
     }
 
@@ -586,7 +572,7 @@
       font-weight: 300;
       letter-spacing: -0.04em;
       line-height: 1.1;
-      color: #1C1C1E;
+      color: #fff;
       margin-bottom: 12px;
     }
 
@@ -594,7 +580,7 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 1.65;
-      color: rgba(60,60,67,0.6);
+      color: rgba(255,255,255,0.55);
       max-width: 400px;
       margin: 0 auto 24px;
     }
@@ -603,16 +589,16 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 0.5px solid rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 0.5px solid rgba(255,255,255,0.2);
       border-radius: 40px;
       padding: 10px 22px;
       font-size: 15px;
       font-weight: 500;
-      color: #1C1C1E;
-      box-shadow: 0 2px 12px rgba(74,102,112,0.1), inset 0 1px 0 rgba(255,255,255,0.95);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
     .dot-green {
@@ -663,7 +649,7 @@
       font-size: 13px;
       font-weight: 400;
       letter-spacing: 0.02em;
-      color: #AEAEB2;
+      color: rgba(255,255,255,0.3);
     }
 
     /* ── VAGAS BADGE (pisca como notificação iPhone) ── */
@@ -792,14 +778,11 @@
     /* ── MOBILE — experiência iOS nativa ── */
     @media (max-width: 768px) {
 
-      /* Wallpaper aurora estilo iPhone */
+      /* Foto de fundo no mobile — mesma da versão desktop */
       body {
         background:
-          radial-gradient(ellipse 90% 55% at 15% -5%,  rgba(120,60,220,0.75) 0%, transparent 55%),
-          radial-gradient(ellipse 70% 70% at 88% 105%, rgba(20,160,180,0.65) 0%, transparent 55%),
-          radial-gradient(ellipse 80% 40% at 50% 50%,  rgba(10,25,80,0.5)    0%, transparent 75%),
-          radial-gradient(ellipse 60% 60% at 10% 90%,  rgba(0,100,120,0.4)   0%, transparent 50%),
-          linear-gradient(175deg, #02060f 0%, #080f28 30%, #091a32 65%, #030b1a 100%);
+          linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
+          url('DSC08592 (1).jpg') center center / cover fixed no-repeat;
         color: #fff;
       }
 
@@ -1491,6 +1474,11 @@
   let cur = 1;
   const A = {};
 
+  function updateWinTitle() {
+    const el = document.getElementById('win-title');
+    if (el) el.style.visibility = cur === 1 ? 'visible' : 'hidden';
+  }
+
   function updateProgress() {
     const pct = Math.round(((cur - 1) / TOTAL) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
@@ -1503,6 +1491,7 @@
     cur = n;
     document.getElementById('step-' + cur).classList.add('active');
     updateProgress();
+    updateWinTitle();
     scrollToTop();
   }
 
