@@ -646,8 +646,7 @@
     }
 
     .vagas-dot {
-      width: 7px;
-      height: 7px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: #FF3B30;
       animation: vagasDot 2s ease-in-out infinite;
@@ -672,62 +671,272 @@
       50%       { background: rgba(255,59,48,0.06); border-color: rgba(255,59,48,0.15); }
     }
 
-    /* ── RESPONSIVE — MOBILE ── */
-    @media (max-width: 600px) {
-      /* Menu bar — esconde itens de texto, mantém badge */
-      .menubar { gap: 10px; padding: 0 12px; }
-      .menubar-items { display: none; }
-      .menubar-brand { font-size: 12px; }
+    /* ── iOS STATUS BAR (mobile only) ── */
+    .ios-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 50px;
+      z-index: 200;
+      padding: 12px 24px 0;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      /* Page */
-      .page { padding: 44px 0 32px; align-items: flex-start; }
+    .ios-time {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
+      min-width: 44px;
+    }
 
-      /* Window ocupa tela toda, sem bordas laterais */
-      .window {
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        min-height: calc(100vh - 44px);
+    .ios-island {
+      width: 120px; height: 32px;
+      background: #000;
+      border-radius: 20px;
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      top: 10px;
+    }
+
+    .ios-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ios-signal {
+      display: flex; gap: 2px; align-items: flex-end;
+    }
+    .ios-signal span {
+      background: #fff;
+      border-radius: 1px;
+      width: 3px;
+    }
+    .ios-signal span:nth-child(1) { height: 4px; }
+    .ios-signal span:nth-child(2) { height: 7px; }
+    .ios-signal span:nth-child(3) { height: 10px; }
+    .ios-signal span:nth-child(4) { height: 13px; }
+
+    .ios-wifi {
+      font-size: 13px; color: #fff; line-height: 1;
+    }
+
+    .ios-battery {
+      display: flex; align-items: center; gap: 1px;
+    }
+    .ios-battery-body {
+      width: 24px; height: 12px;
+      border: 1.5px solid rgba(255,255,255,0.85);
+      border-radius: 3px;
+      padding: 1.5px;
+      position: relative;
+    }
+    .ios-battery-fill {
+      height: 100%; width: 80%;
+      background: #fff;
+      border-radius: 1px;
+    }
+    .ios-battery-cap {
+      width: 2px; height: 5px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 0 1px 1px 0;
+      margin-left: 1px;
+    }
+
+    /* ── DESKTOP font tweaks (ligeiramente maiores) ── */
+    .win-sub        { font-size: 15px; }
+    .step-question  { font-size: clamp(19px, 3.5vw, 22px); }
+    .step-hint      { font-size: 14px; }
+    .opt            { font-size: 15px; }
+    .field label    { font-size: 12px; }
+    .field input,
+    .field textarea,
+    .field select   { font-size: 15px; }
+
+    /* ── MOBILE — experiência iOS nativa ── */
+    @media (max-width: 768px) {
+
+      /* Wallpaper aurora estilo iPhone */
+      body {
+        background:
+          radial-gradient(ellipse 90% 55% at 15% -5%,  rgba(120,60,220,0.75) 0%, transparent 55%),
+          radial-gradient(ellipse 70% 70% at 88% 105%, rgba(20,160,180,0.65) 0%, transparent 55%),
+          radial-gradient(ellipse 80% 40% at 50% 50%,  rgba(10,25,80,0.5)    0%, transparent 75%),
+          radial-gradient(ellipse 60% 60% at 10% 90%,  rgba(0,100,120,0.4)   0%, transparent 50%),
+          linear-gradient(175deg, #02060f 0%, #080f28 30%, #091a32 65%, #030b1a 100%);
+        color: #fff;
       }
 
-      /* Titlebar */
-      .titlebar { height: 40px; }
-      .titlebar-title { font-size: 12px; }
-      .titlebar-spacer { width: 40px; }
+      /* Troca macOS bar por iOS bar */
+      .menubar { display: none; }
+      .ios-bar { display: flex; }
 
-      /* Body */
-      .window-body { padding: 24px 20px 32px; }
-      .screen-body  { padding: 32px 20px; }
+      /* Remove titlebar da janela */
+      .titlebar { display: none; }
+
+      /* Página */
+      .page {
+        padding: 58px 14px 40px;
+        align-items: flex-start;
+      }
+
+      /* Badge de vagas centralizado abaixo da status bar */
+      .vagas-float-mobile {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+
+      /* Janela vira card iOS flutuante sobre wallpaper */
+      .window {
+        border-radius: 26px !important;
+        background: rgba(255,255,255,0.11) !important;
+        backdrop-filter: blur(70px) saturate(220%) brightness(1.12) !important;
+        -webkit-backdrop-filter: blur(70px) saturate(220%) brightness(1.12) !important;
+        border: 0.5px solid rgba(255,255,255,0.22) !important;
+        box-shadow:
+          0 32px 80px rgba(0,0,0,0.55),
+          0 4px 16px rgba(0,0,0,0.3),
+          inset 0 1.5px 0 rgba(255,255,255,0.28),
+          inset 0 -1px 0 rgba(255,255,255,0.06) !important;
+      }
+
+      /* Window body */
+      .window-body { padding: 28px 22px 36px; }
+      .screen-body { padding: 36px 22px; }
 
       /* Header */
-      .win-headline { font-size: 24px; }
-      .win-sub      { font-size: 13px; }
+      .win-header { border-bottom-color: rgba(255,255,255,0.1); margin-bottom: 24px; }
+      .section-label { color: rgba(255,255,255,0.45); }
+      .win-headline { color: #fff; font-size: 28px; margin-bottom: 12px; }
+      .win-sub { color: rgba(255,255,255,0.65); font-size: 15px; }
+
+      /* Progress */
+      .progress-tag { color: rgba(255,255,255,0.38); }
+      .progress-pct { color: rgba(255,255,255,0.7); }
+      .progress-track { background: rgba(255,255,255,0.1); }
+      .progress-fill { background: rgba(255,255,255,0.6); }
 
       /* Steps */
-      .step-question { font-size: 17px; }
+      .step-label    { color: rgba(255,255,255,0.4); font-size: 11px; }
+      .step-question { color: #fff; font-size: 20px; }
+      .step-hint     { color: rgba(255,255,255,0.48); font-size: 14px; }
 
       /* Options */
-      .opt { padding: 12px 14px; font-size: 14px; }
+      .opt {
+        background: rgba(255,255,255,0.09);
+        border: 0.5px solid rgba(255,255,255,0.18);
+        color: rgba(255,255,255,0.88);
+        font-size: 15px;
+        padding: 15px 16px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+        border-radius: 14px;
+      }
+      .opt:hover {
+        background: rgba(255,255,255,0.16);
+        border-color: rgba(255,255,255,0.32);
+        transform: none;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+      }
+      .opt.selected {
+        background: rgba(107,133,144,0.35);
+        border-color: rgba(180,200,210,0.6);
+        color: #fff;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+      }
+      .opt-indicator { border-color: rgba(255,255,255,0.28); }
+      .opt-check     { border-color: rgba(255,255,255,0.28); }
+      .opt.selected .opt-indicator { background: rgba(180,200,210,0.8); border-color: transparent; }
+      .opt.selected .opt-check     { background: rgba(180,200,210,0.8); border-color: transparent; }
 
       /* Inputs */
+      .field label { color: rgba(255,255,255,0.42); font-size: 11px; }
       .field input,
       .field textarea,
-      .field select { font-size: 16px; /* evita zoom no iOS */ padding: 13px 14px; }
+      .field select {
+        background: rgba(255,255,255,0.09);
+        border: 0.5px solid rgba(255,255,255,0.18);
+        color: #fff;
+        font-size: 16px;
+        padding: 14px 16px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        border-radius: 14px;
+      }
+      .field input::placeholder,
+      .field textarea::placeholder { color: rgba(255,255,255,0.28); }
+      .field input:focus,
+      .field textarea:focus,
+      .field select:focus {
+        border-color: rgba(180,200,210,0.7);
+        background: rgba(255,255,255,0.14);
+        box-shadow: 0 0 0 3px rgba(107,133,144,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+      }
+      .field select option { background: #091a32; color: #fff; }
 
-      /* Nav */
-      .nav { margin-top: 20px; padding-top: 16px; }
-      .btn-next  { height: 48px; font-size: 15px; }
-      .btn-back  { height: 48px; padding: 0 16px; }
+      /* Hairline */
+      .hairline { background: rgba(255,255,255,0.1); }
+
+      /* Buttons */
+      .nav { border-top-color: rgba(255,255,255,0.08); gap: 12px; }
+      .btn-next {
+        height: 54px;
+        font-size: 16px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.9);
+        color: #0a1e35;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 #fff;
+      }
+      .btn-next:hover { background: #fff; }
+      .btn-back {
+        height: 54px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.1);
+        border: 0.5px solid rgba(255,255,255,0.2);
+        color: rgba(255,255,255,0.6);
+        box-shadow: none;
+        padding: 0 20px;
+      }
+      .btn-back:hover { background: rgba(255,255,255,0.18); color: #fff; }
 
       /* Spotlight */
-      .spotlight-query { font-size: 14px; }
+      .spotlight {
+        background: rgba(255,255,255,0.09);
+        border-color: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.14);
+      }
+      .spotlight-search { border-bottom-color: rgba(255,255,255,0.1); }
+      .spotlight-query  { color: rgba(255,255,255,0.85); font-size: 16px; }
+      .spotlight-icon   { opacity: 0.5; }
+
+      /* Notifications */
+      .notif {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.14);
+      }
+      .notif-app   { color: rgba(255,255,255,0.38); }
+      .notif-title { color: #fff; }
+      .notif-body  { color: rgba(255,255,255,0.55); }
+      .notif-time  { color: rgba(255,255,255,0.3); }
 
       /* Screens */
-      .screen-title { font-size: 24px; }
-      .screen-text  { font-size: 14px; }
+      .screen-title { color: #fff; font-size: 26px; }
+      .screen-text  { color: rgba(255,255,255,0.6); font-size: 15px; }
+
+      .badge-pill {
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.22);
+        color: #fff;
+        box-shadow: none;
+      }
+
+      /* Err */
+      .err { font-size: 12px; }
 
       /* Caption */
-      .caption { padding: 12px; font-size: 12px; }
+      .caption { color: rgba(255,255,255,0.28); font-size: 12px; }
     }
   </style>
 </head>
@@ -736,6 +945,33 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ99QGK8"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- iOS STATUS BAR (mobile only) -->
+  <div class="ios-bar" id="ios-bar">
+    <span class="ios-time" id="ios-time">9:41</span>
+    <div class="ios-island"></div>
+    <div class="ios-icons">
+      <!-- Signal bars -->
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="7" width="3" height="5" rx="1"/>
+        <rect x="4.5" y="5" width="3" height="7" rx="1"/>
+        <rect x="9" y="2.5" width="3" height="9.5" rx="1"/>
+        <rect x="13.5" y="0" width="3" height="12" rx="1"/>
+      </svg>
+      <!-- WiFi -->
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="white"/>
+        <path d="M3.5 6.5a6.5 6.5 0 0 1 9 0" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M1 3.8A10.5 10.5 0 0 1 15 3.8" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
+      <!-- Battery -->
+      <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.35"/>
+        <rect x="2" y="2" width="17" height="8" rx="2" fill="white"/>
+        <path d="M23 4v4a2 2 0 0 0 0-4z" fill="white" fill-opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
 
   <!-- MENU BAR -->
   <div class="menubar">
@@ -762,6 +998,14 @@
   <!-- PAGE -->
   <div class="page">
     <div style="width:100%;max-width:660px;">
+
+      <!-- VAGAS BADGE (mobile only) -->
+      <div class="vagas-float-mobile">
+        <div class="vagas-badge">
+          <div class="vagas-dot"></div>
+          <span class="vagas-text">2 vagas restantes</span>
+        </div>
+      </div>
 
       <!-- WINDOW -->
       <div class="window glass-strong" id="main-window">
@@ -1365,6 +1609,16 @@
   }
 
   updateProgress();
+
+  // iOS live clock
+  function updateIOSTime() {
+    const el = document.getElementById('ios-time');
+    if (!el) return;
+    const now = new Date();
+    el.textContent = now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
+  }
+  updateIOSTime();
+  setInterval(updateIOSTime, 10000);
 </script>
 </body>
 </html>
