@@ -1614,7 +1614,6 @@
     if (!A.investimento) { showErr('err-investimento'); return; } hideErr('err-investimento');
     if (!A.modelo) { showErr('err-modelo'); return; } hideErr('err-modelo');
     if (A.investimento === 'nao') { showScreen('scr-out'); return; }
-    if (A.modelo === 'nao') { showScreen('scr-out'); return; }
     goTo(9);
   }
 
