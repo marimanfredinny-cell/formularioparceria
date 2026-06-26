@@ -1558,7 +1558,7 @@
 
   function goStep3() {
     if (!A.fat) { showErr('err-fat'); return; } hideErr('err-fat');
-    if (A.fat !== 'mais10k') { showScreen('scr-out'); return; }
+    if (A.fat === 'menos5k') { showScreen('scr-out'); return; }
     goTo(4);
   }
 
