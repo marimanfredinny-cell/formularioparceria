@@ -261,6 +261,17 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes notifDrop {
+      0%   { opacity: 0; transform: translateY(-28px) scale(0.94); }
+      55%  { opacity: 1; transform: translateY(4px) scale(1.01); }
+      75%  { transform: translateY(-2px) scale(0.995); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .notif-animate {
+      animation: notifDrop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
     .step-label {
       font-size: 11px;
       font-weight: 600;
@@ -1432,7 +1443,7 @@
 
           <!-- ── SCREEN SUCESSO ── -->
           <div class="screen" id="scr-ok">
-            <div class="notif" style="margin-top:8px;">
+            <div class="notif notif-animate" style="margin-top:8px;">
               <div class="notif-icon">🚀</div>
               <div class="notif-content">
                 <div class="notif-app">Marketing · Parceria</div>
@@ -1442,8 +1453,8 @@
               <div class="notif-time">agora mesmo</div>
             </div>
             <div class="screen-body">
-              <div class="screen-title">Candidatura enviada.<br>Boa escolha.</div>
-              <p class="screen-text">Vou analisar suas respostas e entrar em contato pelo WhatsApp ou e-mail em breve.</p>
+              <div class="screen-title">Respostas enviadas.</div>
+              <p class="screen-text">Entro em contato pra marcarmos uma conversa, até lá!</p>
             </div>
           </div>
 
@@ -1493,7 +1504,15 @@
     document.getElementById('step-label').textContent = id === 'scr-ok' ? 'Concluído.' : 'Resultado.';
     document.getElementById('pct-label').textContent = id === 'scr-ok' ? '100%' : '';
     scrollToTop();
-    if (id === 'scr-ok') send();
+    if (id === 'scr-ok') {
+      send();
+      const notif = document.querySelector('#scr-ok .notif');
+      if (notif) {
+        notif.classList.remove('notif-animate');
+        void notif.offsetWidth;
+        notif.classList.add('notif-animate');
+      }
+    }
   }
 
   function pick(el, key, val) {
